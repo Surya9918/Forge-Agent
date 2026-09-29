@@ -15,7 +15,7 @@ class AutonomyMode(str, Enum):
 
 
 class LLMConfig(BaseModel):
-    provider: str = Field(default="mock", description="LLM provider: google, openai, anthropic, ollama, mock")
+    provider: str = Field(default="mock", description="LLM provider: google, openai, anthropic, ollama, antigravity, mock")
     model: str = Field(default="gemini-2.0-flash", description="Model name")
     api_key_env: str = Field(default="GEMINI_API_KEY", description="Environment variable holding API key")
     api_key: Optional[str] = Field(default=None, description="Direct API key (prefer environment variable)")

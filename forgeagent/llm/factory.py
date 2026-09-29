@@ -9,6 +9,7 @@ from forgeagent.llm.google_provider import GoogleProvider
 from forgeagent.llm.openai_provider import OpenAIProvider
 from forgeagent.llm.anthropic_provider import AnthropicProvider
 from forgeagent.llm.ollama_provider import OllamaProvider
+from forgeagent.llm.antigravity_provider import AntigravityProvider
 
 
 def get_llm_provider(config: LLMConfig) -> LLMProvider:
@@ -39,6 +40,13 @@ def get_llm_provider(config: LLMConfig) -> LLMProvider:
         )
     elif provider_name in ["ollama", "local"]:
         return OllamaProvider(
+            model=config.model,
+            temperature=config.temperature,
+            max_tokens=config.max_tokens,
+            timeout=config.timeout_seconds,
+        )
+    elif provider_name in ["antigravity"]:
+        return AntigravityProvider(
             model=config.model,
             temperature=config.temperature,
             max_tokens=config.max_tokens,
