@@ -1,0 +1,81 @@
+project:
+  name: "forgeagent-workspace"
+  workspace: "./workspace"
+  description: "Autonomous software engineering workspace managed by ForgeAgent"
+
+agent:
+  mode: "autonomous"
+  max_iterations: 10
+  max_runtime_minutes: 120
+  max_files_changed: 50
+  token_budget: 500000
+
+llm:
+  provider: "mock"
+  model: "gemini-2.0-flash"
+  api_key_env: "GEMINI_API_KEY"
+  temperature: 0.2
+  max_tokens: 8192
+
+git:
+  auto_commit: true
+  auto_push: true
+  default_branch: "main"
+  branch_prefix: "forgeagent/"
+  protected_branches:
+    - "main"
+    - "master"
+    - "production"
+
+github:
+  enabled: true
+  token_env: "GITHUB_TOKEN"
+  create_repository: true
+  create_pull_request: true
+  visibility: "private"
+
+sandbox:
+  enabled: true
+  runtime: "local_process"
+  timeout_seconds: 120
+
+ci:
+  enabled: true
+  self_healing: true
+  max_healing_attempts: 5
+  workflow_path: ".github/workflows/ci.yml"
+
+security:
+  require_approval_for:
+    - "repository_delete"
+    - "force_push"
+    - "production_deploy"
+    - "secret_access"
+  allowed_commands:
+    - "npm"
+    - "npx"
+    - "node"
+    - "yarn"
+    - "pnpm"
+    - "python"
+    - "python3"
+    - "pytest"
+    - "pip"
+    - "poetry"
+    - "mvn"
+    - "gradle"
+    - "git"
+    - "echo"
+    - "cat"
+    - "ls"
+    - "pwd"
+    - "mkdir"
+  denied_commands:
+    - "rm -rf /"
+    - "mkfs"
+    - "dd"
+    - "shutdown"
+    - "reboot"
+    - ":(){ :|:& };:"
+    - "chmod -R 777 /"
+  redact_secrets: true

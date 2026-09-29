@@ -1,0 +1,41 @@
+# ForgeAgent v0.1.0 -> Production-Ready Autonomous Software Engineering Agent
+
+- [x] Phase 1: Due Diligence & Project Audit
+  - [x] Extract / inspect repository files and test execution
+  - [x] Trace schema mismatches in Coder and Debugger
+  - [x] Author `docs/production-audit.md`
+- [ ] Phase 2: Schema Hardening & Architectural Fixes
+  - [ ] Canonical `TaskImplementation` and `CodeAction` contracts
+  - [ ] Canonical `RepairPatch` contract with file_path, operation, diff/content, reason, confidence
+  - [ ] Unify Planner, Coder, Debugger, and Orchestrator contracts
+- [ ] Phase 3: Test Suite Recovery & Regression Prevention
+  - [ ] Verify 100% test pass rate
+  - [ ] Add regression tests for Coder and Debugger schemas
+- [ ] Phase 4: Real End-to-End Autonomous Pipeline Verification
+  - [ ] Implement real un-mocked E2E test (Python CLI calculator)
+  - [ ] Verify real plan -> code -> test -> failure injection -> self-heal -> git commit
+- [ ] Phase 5: GitHub Integration & Git Safety Hardening
+  - [ ] Audit branch protections, force-push prevention
+  - [ ] Validate PR creation and CI self-healing
+  - [ ] Verify secret masking in logs, commits, and prompts
+- [ ] Phase 6: Antigravity Native Integration & MCP Server Hardening
+  - [ ] Validate MCP server (JSON-RPC 2.0, input schemas, error handling)
+  - [ ] Validate Verifiable Artifacts generation in `.agents/artifacts/`
+  - [ ] Update `docs/ANTIGRAVITY_INTEGRATION.md`
+- [ ] Phase 7: Sandbox, Terminal Security & Prompt Injection Defense
+  - [ ] Path jail & command allowlist/denylist validation
+  - [ ] Implement & test prompt injection defense (author `docs/security/prompt-injection.md`)
+  - [ ] Update `docs/security/threat-model.md`
+- [ ] Phase 8: State Recovery, Idempotency & LLM Resilience
+  - [ ] State recovery from disk after termination
+  - [ ] Idempotent execution of duplicate project commands
+  - [ ] LLM provider fallbacks and error handling
+- [ ] Phase 9: CLI Verification & Repository Cleanup
+  - [ ] Test all CLI commands (`create`, `status`, `run`, `pause`, `resume`, `approve`, `stop`, `mcp`)
+  - [ ] Remove `__pycache__`, `.pyc`, logs, update `.gitignore`
+- [ ] Phase 10: Versioning, Final Report & Google Drive Upload
+  - [ ] Version bump to `0.2.0` in `__init__.py`, `pyproject.toml`, `setup.py`
+  - [ ] Create `CHANGELOG.md`
+  - [ ] Create `docs/FINAL_REPORT.md`
+  - [ ] Package `ForgeAgent-production-ready-v0.2.0.zip`
+  - [ ] Upload to Google Drive and verify link

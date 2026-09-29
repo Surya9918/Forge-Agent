@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "forgeagent": {
+      "command": "python3",
+      "args": ["-m", "forgeagent.antigravity.mcp_server"],
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}
